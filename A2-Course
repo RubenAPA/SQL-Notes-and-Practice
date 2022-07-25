@@ -1,0 +1,64 @@
+create database db_practicas;
+-- Practice SELECT
+-- Excercise 1
+use db_practicas;
+-- Excercise 2
+select * from ventas;
+-- Excercise 3
+select id_zona, venta, id_cliente from ventas;
+-- Excercise 4
+select venta as vendido from ventas;
+-- Excercise 5
+select venta, venta * 16 as ventaIVA from ventas;
+
+-- Practice WHERE
+-- Excercise 1
+select * from ventas where id_zona = 2;
+-- Excercise 2
+select * from ventas where venta > 2000000;
+-- Excercise 3
+select * from ventas where id_cliente = 7;
+-- Excercise 4
+select * from ventas where venta < 1000000;
+
+-- Practice AND, OR, NOT
+-- Excercise 1
+select * from ventas where venta > 1500000 or venta = 1500000;
+-- Excercise 2
+select * from ventas where venta < 500000 and id_zona = 2 and id_vendedor = 2;
+-- Excercise 3
+select * from ventas where venta > 999999 or id_vendedor = 13;
+-- Excercise 4
+select * from ventas where not id_cliente = 10;
+
+-- Practice IN
+-- Excercise 1
+select * from ventas where id_zona in (1, 2, 3, 4);
+-- Excercise 2
+select venta from ventas where id_cliente in (6, 7, 8, 9);
+-- Excercise 3
+select * from ventas where id_vendedor not in (15, 21, 35);
+
+-- Practice REGEXP (^ inicio, $ final, | ez|iz, [])
+-- Excercise 1
+select * from vendedor where apellido regexp 'ez$';
+-- Excercise 2
+select nombre, apellido from vendedor where apellido regexp 'ez$';
+-- Excercise 3
+select nombre, apellido from vendedor where apellido regexp 'ez$' or apellido regexp '^sa';
+
+-- Practice IS NULL
+-- Excercise 1
+select * from clientes where telefono is null;
+
+-- Practice ORDER BY (ASC, DESC)
+-- Excercise 1
+select * from vendedor order by nombre desc;
+-- Excercise 2
+select * from vendedor order by nombre, apellido desc;
+
+-- Practice LIMIT
+-- Excercise 1
+select * from ventas limit 10;
+-- Excercise 2
+select * from ventas limit 50, 50;
